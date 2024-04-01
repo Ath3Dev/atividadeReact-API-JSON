@@ -1,0 +1,33 @@
+
+.shopimg-Container{
+    width: 100%;
+}
+.shopimg-Container img{
+    margin-top: 6%;
+    width: 100%;
+}
+.productsList{
+    margin: 5% 0;
+}
+.productsList ul{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.produto{
+    width: 350px;
+}
+
+.produto img{
+    width: 100%;
+}
+
+.produto h3{
+    font-size: 16px;
+}
+.produto p{
+    font-size: 24px;
+    font-weight: 600;
+}

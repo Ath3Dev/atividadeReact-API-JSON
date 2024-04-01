@@ -1,0 +1,100 @@
+.contatoh{
+    display: flex;
+    flex-direction: column;
+}
+.contato-img{
+    width: 100%;
+}
+.contato-img img{
+    margin-top: 6%;
+    width: 100%;
+}
+
+.contato-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5% 0;
+}
+
+.contato-text h1{
+    font-size: 36px;
+    font-weight: 600;
+}
+.contato-text p{
+    text-align: center;
+    width: 55%;
+    font-size: 16px;
+    color: #9F9F9F;
+}
+
+.contato-items{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.contato-info{
+    width: 30%;
+}
+.contato-info .info-item{
+    margin: 3% 0;
+}
+
+.info-item .title{
+    display: flex;
+    align-items: center;
+}
+.info-item .title h1{
+    font-size: 24px;
+    font-weight: 500;
+    margin-left: 15px;
+}
+
+.info-item h4{
+    font-size: 16px;
+}
+.contato-items form{
+    width: 50%;
+}
+.form-control {
+    margin-bottom: 20px;
+}
+
+.form-control label {
+    font-weight: 500;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-control input,
+.form-control textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.form-control textarea {
+    resize: vertical;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+    outline: none;
+    border-color: #000000;
+}
+
+.form-button button{
+    width: 200px;
+    font-weight: 500;
+    padding: 5px;
+    border: 2px solid black;
+    transition: border-color 0.3s;
+    border-radius: 10px;
+}
+
+.form-button button:hover{
+    border-color: cyan;
+}
