@@ -1,0 +1,47 @@
+atividadeReact-API-JSON
+│── db.json
+│── index.html
+│── src
+│   │── App.css
+│   │── App.jsx
+│   │── assets
+│   │   │── css
+│   │   │   │── About.css
+│   │   │   │── Contact.css
+│   │   │   │── Home.css
+│   │   │   │── ProductCrud.css
+│   │   │   └── Shop.css
+│   │   └── img
+│   │       │── pageAbout
+│   │       │   └── aboutImg.svg
+│   │       │── pageContact
+│   │       │   └── contactImg.svg
+│   │       │── pageHome
+│   │       │   │── asgaardCouch.svg
+│   │       │   │── sideCouch.svg
+│   │       │   │── sideTable.svg
+│   │       │   └── singleSeater.svg
+│   │       └── pageShop
+│   │           └── imgShop.svg
+│   │── components
+│   │   │── Banner
+│   │   │   │── index.jsx
+│   │   │   └── style.css
+│   │   │── Footer
+│   │   │   │── index.jsx
+│   │   │   └── style.css
+│   │   │── Header
+│   │   │   │── index.jsx
+│   │   │   └── style.css
+│   │   └── RandomProducts
+│   │       │── index.jsx
+│   │       └── style.css
+│   │── main.jsx
+│   │── pages
+│   │   │── About.jsx
+│   │   │── Contact.jsx
+│   │   │── Home.jsx
+│   │   │── ProductCrud.jsx
+│   │   └── Shop.jsx
+│   └── Router.jsx
+└── vite.config.js

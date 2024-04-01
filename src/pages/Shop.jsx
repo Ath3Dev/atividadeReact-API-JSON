@@ -1,51 +1,55 @@
 import React, { useState, useEffect } from "react";
-import { Banner } from "../components/Banner";
-import shopImg from '../assets/img/pageShop/imgShop.svg';
-import '../assets/css/Shop.css'
+import { Banner } from "../components/Banner"; // Importa o componente Banner
+import shopImg from '../assets/img/pageShop/imgShop.svg'; // Importa a imagem da loja
+import '../assets/css/Shop.css'; // Importa o arquivo de estilos da página Shop
 
 export function Shop() {
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    // Define estados para armazenar a lista de produtos, o status de carregamento e erros
+    const [products, setProducts] = useState([]); // Estado para armazenar a lista de produtos
+    const [loading, setLoading] = useState(true); // Estado para controlar o status de carregamento
+    const [error, setError] = useState(null); // Estado para armazenar mensagens de erro
 
+    // Efeito utilizado para carregar os produtos ao montar o componente
     useEffect(() => {
+        // Função para buscar os produtos da API
         fetch("http://localhost:3001/products")
             .then((response) => {
+                // Verifica se a resposta da requisição é bem-sucedida
                 if (!response.ok) {
-                    throw new Error('Falha ao carregar os produtos');
+                    throw new Error('Falha ao carregar os produtos'); // Lança um erro se a resposta não for bem-sucedida
                 }
-                return response.json();
+                return response.json(); // Converte os dados da resposta para JSON
             })
             .then((data) => {
-                setProducts(data);
-                setLoading(false);
+                setProducts(data); // Atualiza o estado dos produtos com os dados obtidos da API
+                setLoading(false); // Define o status de carregamento como falso, indicando que os produtos foram carregados com sucesso
             })
             .catch(error => {
-                console.error('Erro:', error);
-                setError('Erro ao carregar os produtos');
-                setLoading(false);
+                console.error('Erro:', error); // Registra o erro no console
+                setError('Erro ao carregar os produtos'); // Define a mensagem de erro
+                setLoading(false); // Define o status de carregamento como falso, indicando que ocorreu um erro
             });
-    }, []);
+    }, []); // O efeito é executado apenas uma vez, após a montagem do componente
 
     return (
-        <div className="shopContainer">
-            <div className="shopimg-Container">
-                <img src={shopImg} alt="" />
+        <div className="shopContainer"> {/* Container principal da página Shop */}
+            <div className="shopimg-Container"> {/* Container para exibir a imagem da loja */}
+                <img src={shopImg} alt="" /> {/* Exibe a imagem da loja */}
             </div>
 
-            <div className="productsList">
-                {loading ? (
-                    <div>Carregando...</div>
-                ) : error ? (
-                    <div>{error}</div>
+            <div className="productsList"> {/* Container para listar os produtos */}
+                {loading ? ( // Verifica se está carregando os produtos
+                    <div>Carregando...</div> // Exibe uma mensagem de carregamento enquanto os produtos estão sendo carregados
+                ) : error ? ( // Verifica se ocorreu um erro ao carregar os produtos
+                    <div>{error}</div> // Exibe uma mensagem de erro se ocorrer algum problema ao carregar os produtos
                 ) : (
-                    <ul>
-                        {products.map((product) => (
-                            <li key={product.id}>
-                                <div className="produto">
-                                    <img src={product.image} alt={product.name} />
-                                    <h3>{product.name}</h3>
-                                    <p>R${product.price}</p>
+                    <ul> {/* Lista de produtos */}
+                        {products.map((product) => ( // Mapeia os produtos e renderiza cada um deles
+                            <li key={product.id}> {/* Define uma chave única para cada produto */}
+                                <div className="produto"> {/* Container para exibir cada produto */}
+                                    <img src={product.image} alt={product.name} /> {/* Exibe a imagem do produto */}
+                                    <h3>{product.name}</h3> {/* Exibe o nome do produto */}
+                                    <p>R${product.price}</p> {/* Exibe o preço do produto */}
                                 </div>
                             </li>
                         ))}
@@ -53,7 +57,18 @@ export function Shop() {
                 )}
             </div>
 
-            <Banner />
+            <Banner /> {/* Renderiza o componente Banner */}
         </div>
     );
 }
+
+
+/* 
+    Explicações:
+        useState: Utilizado para criar estados no componente. No código, useState é usado para gerenciar o estado dos produtos, o estado de carregamento (loading), e o estado de erro (error).
+        useEffect: Usado para executar operações assíncronas quando o componente é montado. No código, useEffect é usado para carregar os produtos quando o componente é renderizado pela primeira vez.
+        fetch: API nativa para fazer requisições HTTP. É utilizada para buscar os produtos da API.
+        Renderização condicional: Usada para exibir mensagens de carregamento ou erro enquanto os produtos estão sendo carregados ou em caso de falha na requisição.
+        Mapeamento de listas: Utilizado para iterar sobre a lista de produtos e renderizar cada produto.
+    ;
+*/
