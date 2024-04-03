@@ -20,8 +20,8 @@ export function Header() {
             </div>
             {/* Ícones de ação para configurações de usuário, pesquisa, lista de desejos e carrinho de compras */}
             <div className="nav-icons">
-                {/* Botão para acessar a página de administração de produtos (requer autenticação de administrador) */}
-                <Link to="/productcrud?username=admin&password=admin"><button><LuUserCog /></button></Link>
+                {/* Botão para configurações do Usuario*/}
+                <button><LuUserCog /></button>
                 {/* Botão para pesquisa */}
                 <button><HiMiniMagnifyingGlass /></button>
                 {/* Botão para lista de desejos */}

@@ -23,6 +23,11 @@ export function Shop() {
             .then((data) => {
                 setProducts(data); // Atualiza o estado dos produtos com os dados obtidos da API
                 setLoading(false); // Define o status de carregamento como falso, indicando que os produtos foram carregados com sucesso
+                
+                // Verifica se a lista de produtos está vazia e define o estado de erro se nenhum produto for encontrado
+                if (data.length === 0) {
+                    setError('Nenhum produto encontrado');
+                }
             })
             .catch(error => {
                 console.error('Erro:', error); // Registra o erro no console
@@ -36,12 +41,11 @@ export function Shop() {
             <div className="shopimg-Container"> {/* Container para exibir a imagem da loja */}
                 <img src={shopImg} alt="" /> {/* Exibe a imagem da loja */}
             </div>
-
             <div className="productsList"> {/* Container para listar os produtos */}
                 {loading ? ( // Verifica se está carregando os produtos
-                    <div>Carregando...</div> // Exibe uma mensagem de carregamento enquanto os produtos estão sendo carregados
+                    <div className="loading">Carregando...</div> // Exibe uma mensagem de carregamento enquanto os produtos estão sendo carregados
                 ) : error ? ( // Verifica se ocorreu um erro ao carregar os produtos
-                    <div>{error}</div> // Exibe uma mensagem de erro se ocorrer algum problema ao carregar os produtos
+                    <div className="error">{error}</div> // Exibe uma mensagem de erro se ocorrer algum problema ao carregar os produtos
                 ) : (
                     <ul> {/* Lista de produtos */}
                         {products.map((product) => ( // Mapeia os produtos e renderiza cada um deles

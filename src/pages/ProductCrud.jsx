@@ -35,8 +35,9 @@ export function ProductCrud() {
             })
             .catch(error => {
                 console.error('Erro:', error); // Registra o erro no console
-                setError('Erro ao carregar os produtos'); // Atualiza o estado de erro
+                setError('Error: Inicie o server da API'); // Atualiza o estado de erro
                 setLoading(false); // Indica que o carregamento foi concluído
+
             });
     };
 
@@ -98,12 +99,12 @@ export function ProductCrud() {
 
     // Renderiza uma mensagem de carregamento enquanto os produtos estão sendo carregados
     if (loading) {
-        return <div>Carregando...</div>;
+        return <div className="loading crudloading">Carregando...</div>;
     }
 
     // Renderiza uma mensagem de erro se ocorrer algum erro durante a requisição
     if (error) {
-        return <div>{error}</div>;
+        return <div className="error cruderror">{error}</div>;
     }
 
     // Renderiza o formulário de adição de produto e a lista de produtos
@@ -150,7 +151,8 @@ export function ProductCrud() {
 
             {/* Seção para listar e excluir produtos */}
             <div className="deleteContainer">
-                <h2>Produtos</h2>
+                <h2>Produtos no Banco</h2>
+                {products.length === 0 && <p className="error">Não há produtos no banco de dados.</p>}
                 <ul>
                     {/* Mapeia a lista de produtos e renderiza cada produto com um botão para excluí-lo */}
                     {products.map((product) => (

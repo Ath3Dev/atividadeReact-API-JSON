@@ -14,3 +14,16 @@ button {
   cursor: pointer;
   color: #000000;
 }
+
+.loading, .error{
+  text-align: center;
+  margin: 100px 0;
+  font-weight: bold;
+  font-size: 26px;
+}
+.crudloading, .cruderror{
+  padding: 200px;
+}
+.error{
+  color: red;
+}

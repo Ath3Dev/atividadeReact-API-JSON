@@ -25,6 +25,11 @@ export function RandomProducts() {
                 const produtos = data;
                 // Calcula o total de produtos
                 const totalProdutos = produtos.length;
+                // Verificando se há produtos no Banco de Dados
+                if (totalProdutos === 0) {
+                    throw new Error('Não há produtos no Banco de Dados');
+                }
+
                 // Inicializa uma lista para armazenar os produtos aleatórios
                 const randomProducts = [];
 
@@ -40,13 +45,17 @@ export function RandomProducts() {
                 setRandomProducts(randomProducts);
                 // Define o estado de carregamento como false
                 setLoading(false);
-            } catch (error) {
+
+            }
+             // Caso ocorra um erro durante a busca dos produtos, o bloco catch captura e trata o erro
+            catch (error) {
                 console.error('Erro:', error); // Registra o erro no console
-                // Define o estado de erro com a mensagem de erro correspondente
+                // Define o estado de erro com a mensagem correspondente para informar o usuário sobre o problema
                 setError('Erro ao carregar os produtos');
-                // Define o estado de carregamento como false
+                // Define o estado de carregamento como false para indicar que o carregamento terminou, independentemente do resultado
                 setLoading(false);
             }
+
         };
 
         // Chama a função para buscar produtos aleatórios ao montar o componente
@@ -55,12 +64,12 @@ export function RandomProducts() {
 
     // Renderiza uma mensagem de "Carregando..." enquanto o componente estiver carregando
     if (loading) {
-        return <div>Carregando...</div>;
+        return <div className="loading">Carregando...</div>;
     }
 
     // Renderiza uma mensagem de erro caso ocorra algum erro durante o carregamento
     if (error) {
-        return <div>{error}</div>;
+        return <div className="error">{error}</div>;
     }
 
     // Renderiza a lista de produtos aleatórios
