@@ -90,11 +90,11 @@ export function ProductCrud() {
     };
 
     if (loading) {
-        return <div>Carregando...</div>;
+        return <div className="loading">Carregando...</div>;
     }
 
     if (error) {
-        return <div>{error}</div>;
+        return <div className="error">{error}</div>;
     }
 
     return (
@@ -138,7 +138,8 @@ export function ProductCrud() {
             </div>
 
             <div className="deleteContainer">
-                <h2>Produtos</h2>
+                <h2>Produtos no Banco</h2>
+                {products.length === 0 && <p>Não há produtos no banco de dados.</p>}
                 <ul>
                     {products.map((product) => (
                         <li key={product.id}>

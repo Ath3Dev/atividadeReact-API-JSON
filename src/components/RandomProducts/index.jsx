@@ -17,6 +17,9 @@ export function RandomProducts() {
             .then((data) => {
                 const produtos = data;
                 const totalProdutos = produtos.length;
+                if (totalProdutos === 0) {
+                    throw new Error('Não há produtos no Banco de Dados');
+                }
                 const randomProducts = [];
 
                 while (randomProducts.length < 4) {
@@ -29,17 +32,17 @@ export function RandomProducts() {
             })
             .catch(error => {
                 console.error('Erro:', error);
-                setError('Erro ao carregar os produtos');
+                setError(error.message);
                 setLoading(false);
             });
     }, []);
 
     if (loading) {
-        return <div>Carregando...</div>;
+        return <div className="loading">Carregando...</div>;
     }
 
     if (error) {
-        return <div>{error}</div>;
+        return <div className="error">{error}</div>;
     }
 
     return (
