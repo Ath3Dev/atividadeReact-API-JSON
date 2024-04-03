@@ -19,6 +19,9 @@ export function Shop() {
             .then((data) => {
                 setProducts(data);
                 setLoading(false);
+                if (data.length === 0) {
+                    setError('Nenhum produto encontrado');
+                }
             })
             .catch(error => {
                 console.error('Erro:', error);
@@ -35,9 +38,9 @@ export function Shop() {
 
             <div className="productsList">
                 {loading ? (
-                    <div>Carregando...</div>
+                    <div className="loading">Carregando...</div>
                 ) : error ? (
-                    <div>{error}</div>
+                    <div className="error">{error}</div>
                 ) : (
                     <ul>
                         {products.map((product) => (

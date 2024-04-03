@@ -31,7 +31,7 @@ export function ProductCrud() {
             })
             .catch(error => {
                 console.error('Erro:', error);
-                setError('Erro ao carregar os produtos');
+                setError('Error: Inicie o server da API');
                 setLoading(false);
             });
     };
@@ -90,11 +90,11 @@ export function ProductCrud() {
     };
 
     if (loading) {
-        return <div className="loading">Carregando...</div>;
+        return <div className="loading crudloading">Carregando...</div>;
     }
 
     if (error) {
-        return <div className="error">{error}</div>;
+        return <div className="error cruderror">{error}</div>;
     }
 
     return (
@@ -139,7 +139,7 @@ export function ProductCrud() {
 
             <div className="deleteContainer">
                 <h2>Produtos no Banco</h2>
-                {products.length === 0 && <p>Não há produtos no banco de dados.</p>}
+                {products.length === 0 && <p className="error">Não há produtos no banco de dados.</p>}
                 <ul>
                     {products.map((product) => (
                         <li key={product.id}>

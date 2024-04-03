@@ -17,7 +17,7 @@ export function Header() {
                 <Link to="/contact" className="nav-item">Contact</Link>
             </div>
             <div className="nav-icons">
-                <Link to="/productcrud?username=admin&password=admin"><button><LuUserCog /></button></Link>
+                <button><LuUserCog /></button>
                 <button><HiMiniMagnifyingGlass /></button>
                 <button><FaRegHeart /></button>
                 <button><TiShoppingCart /></button>
