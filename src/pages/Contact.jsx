@@ -19,15 +19,14 @@ export function Contact() {
 
 
     const handleInput = (event) => {
- 
+
         const target = event.currentTarget;
 
         const { value, name } = target;
         setFormState({ ...formState, [name]: value })
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSubmit = () => {
         const formGeneral = {
             nome: formState.nome,
             email: formState.email,
@@ -144,7 +143,7 @@ export function Contact() {
                                     required
                                 ></textarea>
                             </div>
-                        
+
                         </div>
                         <div className='form-button'>
                             <button type="submit">Enviar</button>

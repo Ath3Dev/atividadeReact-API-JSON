@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Banner } from "../components/Banner";
 import shopImg from '../assets/img/pageShop/imgShop.svg';
 import '../assets/css/Shop.css'
+
 
 export function Shop() {
     const [products, setProducts] = useState([]);
@@ -46,9 +48,11 @@ export function Shop() {
                         {products.map((product) => (
                             <li key={product.id}>
                                 <div className="produto">
-                                    <img src={product.image} alt={product.name} />
-                                    <h3>{product.name}</h3>
-                                    <p>R${product.price}</p>
+                                    <Link to={`/product/${product.id}`}>
+                                        <img src={product.image} alt={product.name} />
+                                        <h3>{product.name}</h3>
+                                        <p>R${product.price}</p>
+                                    </Link>
                                 </div>
                             </li>
                         ))}

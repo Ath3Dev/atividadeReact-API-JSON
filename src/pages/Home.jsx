@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { RandomProducts } from '../components/RandomProducts'
 import singleSeater from '../assets/img/pageHome/singleSeater.svg'
 import sideTable from '../assets/img/pageHome/sideTable.svg'
@@ -5,15 +6,14 @@ import sideCouch from '../assets/img/pageHome/sideCouch.svg'
 import asgaardCouch from '../assets/img/pageHome/asgaardCouch.svg'
 import '../assets/css/Home.css'
 
-
 export function Home() {
     return (
         <main>
             <div className="yellow-bg">
                 <div className="text">
                     <h1>Rocket single seater</h1>
-                    <div className="button">
-                        <button>Shop Now</button>
+                    <div className="button1">
+                        <Link to="/shop" className="button">View More</Link>
                         <hr />
                     </div>
                 </div>
@@ -25,14 +25,14 @@ export function Home() {
                 <div className="cornerFurniture">
                     <img src={sideTable} alt="" />
                     <div className="viewMore">
-                        <button>View More</button>
+                        <Link to="/shop" className="button">View More</Link>
                         <hr />
                     </div>
                 </div>
                 <div className="cornerFurniture">
                     <img src={sideCouch} alt="" />
                     <div className="viewMore">
-                        <button>View More</button>
+                        <Link to="/shop" className="button">View More</Link>
                         <hr />
                     </div>
                 </div>
@@ -45,7 +45,7 @@ export function Home() {
                 </div>
                 <RandomProducts />
                 <div className="viewMore">
-                    <button>View More</button>
+                    <Link to="/shop" className="button">View More</Link>
                     <hr />
                 </div>
             </div>

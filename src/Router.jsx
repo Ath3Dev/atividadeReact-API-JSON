@@ -7,6 +7,7 @@ import { Contact } from './pages/Contact';
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { ProductCrud } from "./pages/ProductCrud";
+import { SingleProduct } from "./pages/SingleProduct";
 
 const Router = () => {
     const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
@@ -39,6 +40,7 @@ const Router = () => {
                 <Route path="/shop" element={<Shop />} /> 
                 <Route path="/about" element={<About />} /> 
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/product/:id" element={<SingleProduct />}></Route>
                 <Route
                     path="/productcrud"
                     element={
