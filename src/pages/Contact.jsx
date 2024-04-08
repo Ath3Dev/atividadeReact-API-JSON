@@ -10,51 +10,45 @@ import '../assets/css/Contact.css'; // Importa o arquivo de estilos CSS específ
 export function Contact() {
     // Define um estado inicial para o formulário
     const initialForm = {
-        nome: "",
-        email: "",
-        assunto: "",
-        mensagem: ""
+        nome: "", // Inicializa o campo 'nome' do formulário como uma string vazia
+        email: "", // Inicializa o campo 'email' do formulário como uma string vazia
+        assunto: "", // Inicializa o campo 'assunto' do formulário como uma string vazia
+        mensagem: "" // Inicializa o campo 'mensagem' do formulário como uma string vazia
     };
 
     // Define estados para o formulário
-    const [formState, setFormState] = useState(initialForm); // Estado para controlar o estado do formulário
+    const [formState, setFormState] = useState(initialForm); // Estado para controlar o estado do formulário utilizando o hook useState
 
     // Função para lidar com a entrada do usuário no formulário
     const handleInput = (event) => {
-        const target = event.currentTarget;
-        const { value, name } = target;
-        setFormState({ ...formState, [name]: value });
+        const target = event.currentTarget; // Atribui o elemento do evento atual a 'target'
+        const { value, name } = target; // Extrai os valores de 'value' e 'name' do elemento
+        setFormState({ ...formState, [name]: value }); // Atualiza o estado do formulário com os novos valores de entrada do usuário
     };
 
     // Função para lidar com o envio do formulário
-    const handleSubmit = (event) => {
-        event.preventDefault(); // Previne o comportamento padrão do formulário de enviar a página
-
-        // Cria um objeto com os dados do formulário
+    const handleSubmit = () => {
         const formGeneral = {
-            nome: formState.nome,
-            email: formState.email,
-            assunto: formState.assunto,
-            mensagem: formState.mensagem,
-            createdDate: new Date(),
+            nome: formState.nome, // Atribui o valor do campo 'nome' do estado do formulário a 'formGeneral'
+            email: formState.email, // Atribui o valor do campo 'email' do estado do formulário a 'formGeneral'
+            assunto: formState.assunto, // Atribui o valor do campo 'assunto' do estado do formulário a 'formGeneral'
+            mensagem: formState.mensagem, // Atribui o valor do campo 'mensagem' do estado do formulário a 'formGeneral'
+            createdDate: new Date(), // Define a data de criação como a data atual
         };
 
-        // Configurações da requisição para enviar os dados do formulário para o servidor
         const requestOptions = {
-            method: 'POST',
+            method: 'POST', // Define o método da requisição como POST
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json' // Define o tipo de conteúdo como JSON
             },
-            body: JSON.stringify(formGeneral),
+            body: JSON.stringify(formGeneral), // Converte 'formGeneral' para JSON e o atribui ao corpo da requisição
         };
 
-        // URL da API para enviar os dados do formulário
-        const urlJsonServerAPI = 'http://localhost:3001/Messages';
+        const urlJsonServerAPI = 'http://localhost:3001/Messages'; // Define a URL da API JSON do servidor
 
-        // Envia os dados do formulário para o servidor
-        fetch(urlJsonServerAPI, requestOptions)
-            .then((response) => response.json())
-            .then((data) => setFormState(data));
+        fetch(urlJsonServerAPI, requestOptions) // Realiza a requisição para a API JSON do servidor
+            .then((response) => response.json()) // Converte a resposta da requisição para JSON
+            .then((data) => setFormState(data)); // Atualiza o estado do formulário com os dados da resposta
 
         setFormState({ ...initialForm }); // Limpa o estado do formulário após o envio
     };
@@ -106,13 +100,49 @@ export function Contact() {
                                     type="text"
                                     name="nome"
                                     id="nome"
-                                    value={formState.nome}
-                                    onChange={handleInput}
+                                    value={formState.nome} // Atribui o valor do campo 'nome' do estado do formulário ao campo de entrada
+                                    onChange={handleInput} // Chama a função 'handleInput' quando ocorre uma mudança neste campo
                                     placeholder="Informe seu Nome"
                                     required
                                 /> {/* Campo de entrada para o nome */}
                             </div>
-                            {/* Outros campos de entrada semelhantes para o email, assunto e mensagem */}
+                            <div className="form-control">
+                                <label htmlFor="email">Email</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    value={formState.email} // Atribui o valor do campo 'email' do estado do formulário ao campo de entrada
+                                    onChange={handleInput} // Chama a função 'handleInput' quando ocorre uma mudança neste campo
+                                    placeholder="Informe seu Email"
+                                    required
+                                />
+                            </div>
+                            <div className="form-control">
+                                <label htmlFor="email">Assunto</label>
+                                <input
+                                    type="text"
+                                    name="assunto"
+                                    id="assunto"
+                                    value={formState.assunto} // Atribui o valor do campo 'assunto' do estado do formulário ao campo de entrada
+                                    onChange={handleInput} // Chama a função 'handleInput' quando ocorre uma mudança neste campo
+                                    placeholder="Qual o motivo do contato?"
+                                    required
+                                />
+                            </div>
+                            <div className="form-control">
+                                <label htmlFor="mensagem">Mensagem</label>
+                                <textarea
+                                    name="mensagem"
+                                    id="mensagem"
+                                    cols="30"
+                                    rows="5"
+                                    value={formState.mensagem} // Atribui o valor do campo 'mensagem' do estado do formulário à área de texto
+                                    onChange={handleInput} // Chama a função 'handleInput' quando ocorre uma mudança nesta área de texto
+                                    placeholder="Digite sua mensagem"
+                                    required
+                                ></textarea>
+                            </div>
                         </div>
                         <div className='form-button'> {/* Div para o botão de envio do formulário */}
                             <button type="submit">Enviar</button> {/* Botão para enviar o formulário */}

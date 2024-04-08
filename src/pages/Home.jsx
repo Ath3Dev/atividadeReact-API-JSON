@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'; // Importa o componente Link do React Router para navegação entre páginas
 import { RandomProducts } from '../components/RandomProducts'; // Importa o componente RandomProducts para exibir produtos aleatórios
 import singleSeater from '../assets/img/pageHome/singleSeater.svg'; // Importa a imagem do sofá individual
 import sideTable from '../assets/img/pageHome/sideTable.svg'; // Importa a imagem da mesa lateral
@@ -12,8 +13,8 @@ export function Home() {
             <div className="yellow-bg"> {/* Div para a seção com fundo amarelo */}
                 <div className="text"> {/* Div para o texto e botão */}
                     <h1>Rocket single seater</h1> {/* Título */}
-                    <div className="button"> {/* Div para o botão */}
-                        <button>Shop Now</button> {/* Botão para redirecionar para a página de compras */}
+                    <div className="button1"> {/* Div para o botão */}
+                        <Link to="/shop" className="button">View More</Link> {/* Botão para redirecionar para a página de compras */}
                         <hr /> {/* Linha horizontal */}
                     </div>
                 </div>
@@ -25,19 +26,18 @@ export function Home() {
                 <div className="cornerFurniture"> {/* Div para o móvel de canto */}
                     <img src={sideTable} alt="" /> {/* Renderiza a imagem da mesa lateral */}
                     <div className="viewMore"> {/* Div para o botão "Ver Mais" */}
-                        <button>View More</button> {/* Botão para redirecionar para mais detalhes */}
+                        <Link to="/shop" className="button">View More</Link> {/* Botão para redirecionar para mais detalhes */}
                         <hr /> {/* Linha horizontal */}
                     </div>
                 </div>
                 <div className="cornerFurniture"> {/* Div para o móvel de canto */}
                     <img src={sideCouch} alt="" /> {/* Renderiza a imagem do sofá lateral */}
                     <div className="viewMore"> {/* Div para o botão "Ver Mais" */}
-                        <button>View More</button> {/* Botão para redirecionar para mais detalhes */}
+                        <Link to="/shop" className="button">View More</Link> {/* Botão para redirecionar para mais detalhes */}
                         <hr /> {/* Linha horizontal */}
                     </div>
                 </div>
             </div>
-
             <div className="topPicks"> {/* Div para a seção de "Escolhas Principais" */}
                 <div className="text"> {/* Div para o texto */}
                     <h1>Top Picks For You</h1> {/* Título */}
@@ -45,11 +45,10 @@ export function Home() {
                 </div>
                 <RandomProducts /> {/* Componente para exibir produtos aleatórios */}
                 <div className="viewMore"> {/* Div para o botão "Ver Mais" */}
-                    <button>View More</button> {/* Botão para redirecionar para mais produtos */}
+                    <Link to="/shop" className="button">View More</Link> {/* Botão para redirecionar para mais produtos */}
                     <hr /> {/* Linha horizontal */}
                 </div>
             </div>
-
             <div className="arrivals"> {/* Div para a seção de "Novos Chegados" */}
                 <div className="img"> {/* Div para a imagem */}
                     <img src={asgaardCouch} alt="" /> {/* Renderiza a imagem do sofá Asgaard */}
@@ -60,7 +59,6 @@ export function Home() {
                     <button>Order Now</button> {/* Botão para redirecionar para a página de pedido */}
                 </div>
             </div>
-            
             {/* Fim do elemento principal */}
         </main> 
     );

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"; // Importa os hooks useEffect e useState do React para gerenciar efeitos colaterais e estados
+import { Link } from "react-router-dom"; // Importa o componente Link do React Router DOM para navegação entre páginas
 import './style.css'; // Importa o arquivo de estilo CSS para aplicar estilos específicos ao componente
 
 // Componente que exibe produtos aleatórios
@@ -77,11 +78,11 @@ export function RandomProducts() {
         <div className="randomProducts-container">
             {/* Mapeia os produtos aleatórios e renderiza um card para cada um */}
             {randomProducts.map((product) => (
-                <div key={product.id} className="card-produto">
-                    <img src={product.image} alt={product.name} /> {/* Renderiza a imagem do produto */}
-                    <h3>{product.name}</h3> {/* Renderiza o nome do produto */}
-                    <p>R${product.price}</p> {/* Renderiza o preço do produto */}
-                </div>
+                <Link to={`/product/${product.id}`} key={product.id} className="card-produto">
+                    <img src={product.image} alt={product.name} />
+                    <h3>{product.name}</h3>
+                    <p>R${product.price}</p>
+                </Link>
             ))}
         </div>
     );

@@ -18,19 +18,22 @@
     font-size: 64px;
     font-weight: 500;
 }
-.yellow-bg .button button{
+.yellow-bg .button1 {
     margin-top: 20px;
     margin-bottom: 10px;
     font-size: 24px;
     font-weight: 500;
 }
-.yellow-bg .button hr{
+.button1{
+    text-decoration: none;
+}
+.yellow-bg .button1 hr{
     border: 1px solid;
 }
 .yellow-bg .img img{
     width: 100%;
 }
-.yellow-bg .button button:hover {
+.yellow-bg .button1:hover {
     opacity: 0.6;
 }
 
@@ -51,10 +54,10 @@
     margin-top: 3%;
     margin-left: 18%;
 }
-.viewMore button{
+.viewMore .button{
     font-size: 24px;
     font-weight: 500;
-}.viewMore button:hover{
+}.viewMore .button:hover{
     opacity: 0.6;
 }
 .viewMore hr{

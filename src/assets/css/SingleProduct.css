@@ -1,0 +1,39 @@
+.singleProduct{
+    height: 100vh;
+}
+.pageInfo{
+    width: 100%;
+}
+.pageInfo img{
+    width: 100%;
+    margin-top: 7%;
+}
+
+.productContainer{
+    display: flex;
+}
+.productContainer > div{
+    width: 50%;
+}
+.productContainer .img{
+    margin-left: 7%;
+}
+.productContainer .img img{
+    width: 423px;
+}
+
+.productContainer .text h2{
+    font-size: 26px;
+}
+.productContainer .text h3{
+    color: #9F9F9F;
+}
+
+.productContainer .text .descricao{
+    margin-top: 8%;
+    overflow-y: auto;
+    max-height: 260px;
+}
+.productContainer .text .descricao strong{
+    font-weight: 400;
+}

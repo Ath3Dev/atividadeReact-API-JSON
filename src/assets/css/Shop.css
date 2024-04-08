@@ -17,17 +17,15 @@
 }
 
 .produto{
-    width: 350px;
+    width: 300px;
 }
-
-.produto img{
+.produto .img img{
     width: 100%;
 }
-
-.produto h3{
+.produto .text h3{
     font-size: 16px;
 }
-.produto p{
+.produto .text p{
     font-size: 24px;
     font-weight: 600;
 }

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // Importa o componente Link do React Router para navegação entre páginas
 import { Banner } from "../components/Banner"; // Importa o componente Banner
 import shopImg from '../assets/img/pageShop/imgShop.svg'; // Importa a imagem da loja
 import '../assets/css/Shop.css'; // Importa o arquivo de estilos da página Shop
 
+// Componente responsável por exibir a página de compras
 export function Shop() {
     // Define estados para armazenar a lista de produtos, o status de carregamento e erros
     const [products, setProducts] = useState([]); // Estado para armazenar a lista de produtos
@@ -50,22 +52,26 @@ export function Shop() {
                     <ul> {/* Lista de produtos */}
                         {products.map((product) => ( // Mapeia os produtos e renderiza cada um deles
                             <li key={product.id}> {/* Define uma chave única para cada produto */}
-                                <div className="produto"> {/* Container para exibir cada produto */}
-                                    <img src={product.image} alt={product.name} /> {/* Exibe a imagem do produto */}
-                                    <h3>{product.name}</h3> {/* Exibe o nome do produto */}
-                                    <p>R${product.price}</p> {/* Exibe o preço do produto */}
-                                </div>
+                                <Link to={`/product/${product.id}`} className="linkStyle"> {/* Link para a página do produto */}
+                                    <div className="produto"> {/* Container para exibir cada produto */}
+                                        <div className="img"> {/* Div para a imagem do produto */}
+                                            <img src={product.image} alt={product.name} /> {/* Exibe a imagem do produto */}
+                                        </div>
+                                        <div className="text"> {/* Div para o texto do produto */}
+                                            <h3>{product.name}</h3> {/* Exibe o nome do produto */}
+                                            <p>R${product.price}</p> {/* Exibe o preço do produto */}
+                                        </div>
+                                    </div>
+                                </Link>
                             </li>
                         ))}
                     </ul>
                 )}
             </div>
-
             <Banner /> {/* Renderiza o componente Banner */}
         </div>
     );
 }
-
 
 /* 
     Explicações:
@@ -74,5 +80,7 @@ export function Shop() {
         fetch: API nativa para fazer requisições HTTP. É utilizada para buscar os produtos da API.
         Renderização condicional: Usada para exibir mensagens de carregamento ou erro enquanto os produtos estão sendo carregados ou em caso de falha na requisição.
         Mapeamento de listas: Utilizado para iterar sobre a lista de produtos e renderizar cada produto.
+        Componente Link: Usado para criar links entre páginas da aplicação, permitindo a navegação entre elas sem recarregar a página.
+        Key prop: Utilizada para fornecer uma chave única a cada elemento filho em um conjunto de dados, ajudando o React a identificar quais itens foram adicionados, removidos ou reordenados.
     ;
 */

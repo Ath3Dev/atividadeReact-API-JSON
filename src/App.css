@@ -8,11 +8,17 @@
   font-weight: 400;
 }
 
-button {
+.linkStyle{
+  text-decoration: none;
+  color: black;
+}
+
+button, .button{
   background: none;
   border: none;
   cursor: pointer;
   color: #000000;
+  text-decoration: none;
 }
 
 .loading, .error{
