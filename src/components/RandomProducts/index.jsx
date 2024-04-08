@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import './style.css';
+import { Link } from "react-router-dom";
 
 export function RandomProducts() {
     const [randomProducts, setRandomProducts] = useState([]);
@@ -48,11 +49,11 @@ export function RandomProducts() {
     return (
         <div className="randomProducts-container">
             {randomProducts.map((product) => (
-                <div key={product.id} className="card-produto">
+                <Link to={`/product/${product.id}`} key={product.id} className="card-produto">
                     <img src={product.image} alt={product.name} />
                     <h3>{product.name}</h3>
                     <p>R${product.price}</p>
-                </div>
+                </Link>
             ))}
         </div>
     );
