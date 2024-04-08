@@ -47,13 +47,17 @@ export function Shop() {
                     <ul>
                         {products.map((product) => (
                             <li key={product.id}>
-                                <div className="produto">
-                                    <Link to={`/product/${product.id}`}>
-                                        <img src={product.image} alt={product.name} />
-                                        <h3>{product.name}</h3>
-                                        <p>R${product.price}</p>
-                                    </Link>
-                                </div>
+                                <Link to={`/product/${product.id}`} className="linkStyle">
+                                    <div className="produto">
+                                        <div className="img">
+                                            <img src={product.image} alt={product.name} />
+                                        </div>
+                                        <div className="text">
+                                            <h3>{product.name}</h3>
+                                            <p>R${product.price}</p>
+                                        </div>
+                                    </div>
+                                </Link>
                             </li>
                         ))}
                     </ul>

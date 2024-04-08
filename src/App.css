@@ -8,6 +8,11 @@
   font-weight: 400;
 }
 
+.linkStyle{
+  text-decoration: none;
+  color: black;
+}
+
 button, .button{
   background: none;
   border: none;
