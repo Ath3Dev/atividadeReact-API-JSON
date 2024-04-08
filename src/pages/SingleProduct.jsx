@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
+import pageInfo from '../assets/img/pageSingleProduct/pageInfo.svg'
+import '../assets/css/SingleProduct.css'
 
 export function SingleProduct() {
     const [itemId, setItemId] = useState({});
@@ -17,14 +19,25 @@ export function SingleProduct() {
 
     useEffect(() => {
         getItemId();
-    }, [id]); 
+    }, [id]);
 
     return (
         <div className="singleProduct">
-            {itemId.image && <img src={itemId.image} alt="" />}
-            <h2>{itemId.name}</h2>
-            <h3>R$ {itemId.price}</h3>
-            <strong>{itemId.description}</strong>
+            <div className="pageInfo">
+                <img src={pageInfo} alt="" />
+            </div>
+            <div className="productContainer">
+                <div className="img">
+                    {itemId.image && <img src={itemId.image} alt="" />}
+                </div>
+                <div className="text">
+                    <h2>{itemId.name}</h2>
+                    <h3>R$ {itemId.price}</h3>
+                    <div className="descricao">
+                        <strong>{itemId.description}</strong>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
